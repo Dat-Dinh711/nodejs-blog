@@ -22,6 +22,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/news', (req, res) => {
+    // console.log(req.query.q);
     res.render('news');
 });
 
