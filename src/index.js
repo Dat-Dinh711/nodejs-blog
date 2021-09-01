@@ -7,6 +7,14 @@ const port = 3000;
 
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Middleware
+// Dạng form HTML
+app.use(express.urlencoded({
+    extended: true
+}));
+// Dạng gửi từ code Javascript
+app.use(express.json());
+
 // HTTP logger
 // app.use(morgan('combined'))
 
@@ -29,6 +37,12 @@ app.get('/news', (req, res) => {
 app.get('/search', (req, res) => {
     // console.log(req.query.q);
     res.render('search');
+});
+
+app.post('/search', (req, res) => {
+    console.log(req.body);
+
+    res.send('');
 });
 
 app.listen(port, () => {
