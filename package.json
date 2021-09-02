@@ -8,7 +8,8 @@
         "start": "nodemon --inspect src/index.js",
         "build-css": "node-sass src/resources/scss/ --output src/public/css/",
         "watch": "nodemon -e scss -x npm run build-css",
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "prepare": "husky install"
     },
     "repository": {
         "type": "git",
@@ -34,7 +35,7 @@
         "src/**/*.{js,json,scss}": "prettier --single-quote --trailing-comma all --tab-width 4 --write"
     },
     "devDependencies": {
-        "husky": "^7.0.2",
+        "husky": "^7.0.0",
         "lint-staged": "^11.1.2",
         "morgan": "^1.10.0",
         "node-sass": "^6.0.1",
