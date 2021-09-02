@@ -29,7 +29,8 @@
     "homepage": "https://github.com/Dat-Dinh711/nodejs-blog#readme",
     "dependencies": {
         "express": "^4.17.1",
-        "express-handlebars": "^5.3.3"
+        "express-handlebars": "^5.3.3",
+        "mongoose": "^6.0.4"
     },
     "lint-staged": {
         "src/**/*.{js,json,scss}": "prettier --single-quote --trailing-comma all --tab-width 4 --write"
