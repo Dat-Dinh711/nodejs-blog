@@ -30,7 +30,10 @@
     "dependencies": {
         "express": "^4.17.1",
         "express-handlebars": "^5.3.3",
-        "mongoose": "^6.0.4"
+        "install": "^0.13.0",
+        "mongoose": "^6.0.4",
+        "mongoose-slug-generator": "^1.0.4",
+        "npm": "^7.22.0"
     },
     "lint-staged": {
         "src/**/*.{js,json,scss}": "prettier --single-quote --trailing-comma all --tab-width 4 --write"
