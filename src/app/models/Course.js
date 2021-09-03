@@ -7,6 +7,7 @@ const Schema = mongoose.Schema;
 
 const Course = new Schema(
     {
+        id: { type: String },
         name: { type: String, required: true },
         description: { type: String, maxLength: 600 },
         image: { type: String },
