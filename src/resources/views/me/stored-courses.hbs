@@ -16,7 +16,7 @@
               <option value="delete">Xóa</option>
             </select>
 
-            <button class="btn btn-primary btn-sm btn-check-all-submit disabled">Thực hiện</button>
+            <button class="btn btn-primary btn-sm btn-check-all-submit" disabled>Thực hiện</button>
         </div>
     </div>
 
@@ -143,24 +143,20 @@
         function renderCheckAllSubmitBtn() {
             var checkedCount = $('input[name="courseIds[]"]:checked').length;
             if(checkedCount > 0) {
-              checkAllSubmitBtn.removeClass('disabled');
+              checkAllSubmitBtn.attr('disabled', false);
             }
             else {
-              checkAllSubmitBtn.addClass('disabled');
+              checkAllSubmitBtn.attr('disabled', true);
             }
         }
 
         // Check all submit button clicked
         checkAllSubmitBtn.on('click', function() {
-            event.preventDefault();
-
             if($('.checkbox-select-all-options :selected').val() === 'delete'){
               checkAllSubmitBtn.attr({
                 'data-toggle': 'modal',
                 'data-target': '#delete-courses-modal'
               })
-            } else{
-              containerForm.submit();
             }
         });
 
