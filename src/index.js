@@ -27,6 +27,39 @@ app.use(express.json());
 
 app.use(methodOverride('_method'));
 
+// Example about Middleware
+
+// app.use(bacBaoVe);
+
+// function bacBaoVe(req, res, next) {
+//     if (['vethuong', 'vevip'].includes(req.query.ve)) {
+//         req.face = 'Gach gach gach!!!';
+//         return next();
+//     }
+//     res.status(430).json({
+//         message: 'Access Denied'
+//     });
+// }
+
+app.get(
+    '/middleware',
+    function (req, res, next) {
+        if (['vethuong', 'vevip'].includes(req.query.ve)) {
+            req.face = 'Gach gach gach!!!';
+            return next();
+        }
+        res.status(430).json({
+            message: 'Access Denied',
+        });
+    },
+    function (req, res, next) {
+        res.json({
+            message: 'Successfully!',
+            face: req.face,
+        });
+    },
+);
+
 // HTTP logger
 // app.use(morgan('combined'))
 
