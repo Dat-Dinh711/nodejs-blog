@@ -26,8 +26,14 @@
             <tr>
                 <th scope="col"></th>
                 <th scope="col">#</th>
-                <th scope="col">Tên khóa học</th>
-                <th scope="col" colspan="2">Thời gian xóa</th>
+                <th scope="col">
+                  Tên khóa học
+                  {{{sortable 'name' _sort}}}
+                </th>
+                <th scope="col" colspan="2">
+                  Thời gian xóa
+                  {{{sortable 'deletedAt' _sort}}}
+                </th>
             </tr>
         </thead>
         <tbody>
@@ -167,6 +173,8 @@
 
         // Check all submit button clicked
         checkAllSubmitBtn.on('click', function () {
+          event.preventDefault();
+          
           if($('.checkbox-select-all-options :selected').val() === 'forceDelete'){
               checkAllSubmitBtn.attr({
                 'data-toggle': 'modal',

@@ -25,8 +25,14 @@
             <tr>
                 <th scope="col"></th>
                 <th scope="col">#</th>
-                <th scope="col">Tên khóa học</th>
-                <th scope="col" colspan="2">Thời gian tạo</th>
+                <th scope="col">
+                  Tên khóa học
+                  {{{sortable 'name' _sort}}}
+                  </th>
+                <th scope="col" colspan="2">
+                  Thời gian tạo
+                  {{{sortable 'createdAt' _sort}}}
+                  </th>
             </tr>
         </thead>
         <tbody>
@@ -151,7 +157,9 @@
         }
 
         // Check all submit button clicked
-        checkAllSubmitBtn.on('click', function() {
+        checkAllSubmitBtn.on('click', function(event) {
+            event.preventDefault();
+
             if($('.checkbox-select-all-options :selected').val() === 'delete'){
               checkAllSubmitBtn.attr({
                 'data-toggle': 'modal',
