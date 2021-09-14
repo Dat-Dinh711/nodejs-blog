@@ -23,7 +23,6 @@ class CourseController {
 
     // [POST] /courses/store
     store(req, res, next) {
-        // res.json(req.body);
         const imageData = req.body.videoId;
         req.body.image =
             'https://i.ytimg.com/vi/' + imageData + '/maxresdefault.jpg';
@@ -31,7 +30,7 @@ class CourseController {
         course
             .save()
             .then(() => res.redirect('/me/stored/courses'))
-            .catch((error) => {});
+            .catch(next);
     }
 
     // [GET] /courses/:id/edit

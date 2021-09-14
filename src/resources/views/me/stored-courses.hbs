@@ -3,14 +3,7 @@
         <h3>Khóa học của tôi</h3>
         <a href="/me/trash/courses">Thùng rác ({{deletedCourses}})</a>
 
-        <div class="mt-4 d-flex align-items-center" style="margin-bottom: 24px">
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="checkbox-all">
-              <label class="form-check-label" for="checkbox-all">
-                Chọn tất cả
-              </label>
-            </div>
-
+        <div class="mt-4 d-flex align-items-center" style="margin-bottom: 24px; margin-left: -6px;">
             <select class="form-control form-control-sm checkbox-select-all-options" name="action" required>
               <option value="">-- Chọn hành động --</option>
               <option value="delete">Xóa</option>
@@ -23,8 +16,15 @@
     <table class="table">
         <thead>
             <tr>
-                <th scope="col"></th>
-                <th scope="col">#</th>
+                <th scope="col">
+                  <div class="form-check">
+                    <input style="margin-top: -17px" class="form-check-input" type="checkbox" value="" id="checkbox-all">
+                  </div>
+                </th>
+                <th scope="col">
+                  ID
+                  {{{sortable '_id' _sort}}}
+                </th>
                 <th scope="col">
                   Tên khóa học
                   {{{sortable 'name' _sort}}}
@@ -43,7 +43,7 @@
                     <input class="form-check-input" type="checkbox" name="courseIds[]" value="{{this._id}}">
                   </div>
                 </td>
-                <th scope="row">{{sum @index 1}}</th>
+                <th scope="row">{{this._id}}</th>
                 <td>{{this.name}}</td>
                 <td>{{this.createdAt}}</td>
                 <td>
